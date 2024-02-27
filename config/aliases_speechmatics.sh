@@ -44,7 +44,7 @@ alias ptail="[ -z '$SINGULARITY_CONTAINER' ] && echo $PARQUET_ENV_ERROR_MESSAGE 
 function pless () { pcat $@ | less; }
 
 # Misc
-alias jp="jupyter lab --no-browser --ip $HOST_IP_ADDR"
+alias jp="jupyter lab --no-browser --ip 0.0.0.0 --NotebookApp.token='' --NotebookApp.password=''"
 alias ls='ls -hF --color' # add colors for filetype recognition
 alias nv='nvidia-smi'
 
