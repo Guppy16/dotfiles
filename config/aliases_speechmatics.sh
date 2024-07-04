@@ -61,10 +61,12 @@ alias mut="make unittest"
 # Tensorboard
 # -------------------------------------------------------------------
 
+alias tb="singularity exec -B $PWD oras://singularity-master.artifacts.speechmatics.io/tensorboard:2.6.0a20210704 tensorboard --load_fast true --host=$(hostname -f)  --reload_multifile true --logdir=$PWD"
+
 tblink () {
     [ -z $SINGULARITY_CONTAINER ] && echo "must be run inside SIF" && return
     # Creates simlinks from specified folders to ~/tb/x where x is an incrmenting number
-    # and luanches tensorboard
+    # and launches tensorboard
     # example: `tblink ./lm/20210824 ./lm/20210824_ablation ./lm/20210825_updated_data`
     if [ "$#" -eq 0 ]; then
         logdir=$(pwd)
@@ -83,13 +85,13 @@ tblink () {
         _linkdirs "$logdir" "$@"
     fi
     tensorboard \
-      --host=$HOST_IP_ADDR \
       --reload_multifile true \
       --logdir="$logdir" \
       --reload_interval 8 \
       --extra_data_server_flags=--no-checksum \
       --max_reload_threads 4 \
       --window_title $PWD
+     # --host=$HOST_IP_ADDR \
 }
 _linkdirs() {
     logdir="$1"
