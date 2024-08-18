@@ -132,3 +132,8 @@ alias lm='ls -al |more'   # pipe through 'more'
 alias lr='ls -lR'         # recursive ls
 alias tree='tree -Csu'    # nice alternative to 'recursive ls'
 
+#-------------------------------------------------------------
+# ml
+#-------------------------------------------------------------
+
+alias tbd="tensorboard --bind_all --load_fast true --reload_multifile true --logdir=$PWD --reload_interval 8 --extra_data_server_flags=--no-checksum --max_reload_threads 4 --window_title $PWD 2>&1"
