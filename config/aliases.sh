@@ -12,6 +12,7 @@ alias jp="jupyter lab"
 # -------------------------------------------------------------------
 
 alias cl="clear"
+alias watchh="watch "
 
 # file and directories
 alias rmd='rm -rf'

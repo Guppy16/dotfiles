@@ -10,6 +10,9 @@ alias a2="cd ~/git/aladdin2"
 alias cde="cd /exp/$(whoami)"
 alias cdt="cd ~/tb"
 alias cdn="cd ~/notebooks"
+alias cdp="cd ~/git/aladdin/aladdin/tts/parlertts/"
+
+alias grpu='grep --color -E "^|$USER"'
 
 # Perish machines
 alias p1="cd /perish_aml01"
@@ -44,7 +47,7 @@ alias ptail="[ -z '$SINGULARITY_CONTAINER' ] && echo $PARQUET_ENV_ERROR_MESSAGE 
 function pless () { pcat $@ | less; }
 
 # Misc
-alias jp="jupyter lab --no-browser --ip 0.0.0.0 --NotebookApp.token='' --NotebookApp.password=''"
+alias jp="jupyter lab --no-browser --ip 0.0.0.0 --NotebookApp.token='123' --NotebookApp.password='123'"
 alias ls='ls -hF --color' # add colors for filetype recognition
 alias nv='nvidia-smi'
 
@@ -127,8 +130,10 @@ full_queue='qstat -q "aml*.q@*" -f -u \*'
 alias q='qstat'
 alias qtop='qalter -p 1024'
 alias qq=$full_queue # Display full queue
-alias gq='qstat -q aml-gpu.q -f -u \*' # Display just the gpu queues
+alias gq='qstat -q aml-gpu.q -f -u \*' # Display just the gpu jobs and some on the queue
+alias gqa='qstat -f -u "*" | grpu' # Display gpu jobs and ALL jobs in the queue
 alias gqf='qstat -q aml-gpu.q -u \* -r -F gpu | egrep -v "jobname|Master|Binding|Hard|Soft|Requested|Granted"' # Display the gpu queues, including showing the preemption state of each job
+alias gqu='gq | grpu ; qstat -u $USER | grpu' # Display the GPU queue and your current jobs, and highlight the ones with your name
 alias cq='qstat -q "aml-cpu.q@gpu*" -f -u \*' # Display just the cpu queues
 alias wq="watch qstat"
 alias wqq="watch $full_queue"
