@@ -50,6 +50,7 @@ function pless () { pcat $@ | less; }
 alias jp="jupyter lab --no-browser --ip 0.0.0.0 --NotebookApp.token='123' --NotebookApp.password='123'"
 alias ls='ls -hF --color' # add colors for filetype recognition
 alias nv='nvidia-smi'
+alias nvitop='pipx run nvitop'
 
 # make file
 alias m='make'
