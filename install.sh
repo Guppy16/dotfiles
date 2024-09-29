@@ -45,8 +45,8 @@ if [ $machine == "Linux" ]; then
     DOT_DIR=$(dirname $(realpath $0))
     [ $zsh == true ] && sudo apt-get install zsh
     [ $tmux == true ] && sudo apt-get install tmux 
-    sudo apt-get install vim
-    sudo apt-get install pipx && pipx ensurepath
+    sudo apt-get install vim -y
+    sudo apt-get install pipx -y && pipx ensurepath
 # Installing on mac with homebrew
 elif [ $machine == "Mac" ]; then
     brew install coreutils  # Mac won't have realpath before coreutils installed
