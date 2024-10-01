@@ -43,8 +43,8 @@ esac
 # Installing on linux with apt
 if [ $machine == "Linux" ]; then
     DOT_DIR=$(dirname $(realpath $0))
-    [ $zsh == true ] && sudo apt-get install zsh
-    [ $tmux == true ] && sudo apt-get install tmux 
+    [ $zsh == true ] && sudo apt-get install zsh -y
+    [ $tmux == true ] && sudo apt-get install tmux -y
     sudo apt-get install vim -y
     sudo apt-get install pipx -y && pipx ensurepath
 # Installing on mac with homebrew

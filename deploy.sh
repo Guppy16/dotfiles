@@ -7,7 +7,8 @@ USAGE=$(cat <<-END
 
     OPTIONS:
         --local                 deploy local config only, only common aliases are sourced
-        --vim                   deploy very simple vimrc config 
+        --vim                   deploy very simple vimrc config
+        --skip_zsh              do not call zsh. This is useful for any script calling this script
 END
 )
 
@@ -15,6 +16,7 @@ export DOT_DIR=$(dirname $(realpath $0))
 
 LOC="remote"
 VIM="false"
+SKIP_ZSH="false"
 while (( "$#" )); do
     case "$1" in
         -h|--help)
@@ -23,6 +25,8 @@ while (( "$#" )); do
             LOC="local" && shift ;;
         --vim)
             VIM="true" && shift ;;
+        --skip_zsh)
+            SKIP_ZSH="true" && shift ;;
         --) # end argument parsing
             shift && break ;;
         -*|--*=) # unsupported flags
@@ -48,4 +52,6 @@ echo "source $DOT_DIR/config/zshrc.sh" > $HOME/.zshrc
 [ $LOC = 'remote' ] &&  echo \
     "source $DOT_DIR/config/aliases_speechmatics.sh" >> $HOME/.zshrc
 
-zsh
+if [[ $SKIP_ZSH == "false" ]]; then
+    zsh
+fi
