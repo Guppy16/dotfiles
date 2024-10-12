@@ -46,7 +46,8 @@ if [ $machine == "Linux" ]; then
     [ $zsh == true ] && sudo apt-get install zsh -y
     [ $tmux == true ] && sudo apt-get install tmux -y
     sudo apt-get install vim -y
-    sudo apt-get install pipx -y && pipx ensurepath
+    sudo apt-get install pipx -y && pipx ensurepath # Necessary for nvitop
+    sudo apt-get install jq -y                      # json manipulation
 # Installing on mac with homebrew
 elif [ $machine == "Mac" ]; then
     brew install coreutils  # Mac won't have realpath before coreutils installed
