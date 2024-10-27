@@ -11,6 +11,7 @@ alias jp="jupyter lab"
 # general
 # -------------------------------------------------------------------
 
+alias sshkey="ssh-keygen -t ed25519 -C 'alias@dotfiles'"
 alias cl="clear"
 alias watchh="watch "
 
