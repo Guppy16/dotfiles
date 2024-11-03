@@ -1,17 +1,11 @@
-# Speechmatics dotfiles
+# Guppy16's dotfiles
 
-This repo provides a minimal working set of dotfiles for new starters at Speechmatics, it is not intended to be exhaustive. Suggestions for useful additions are welcome.
-
-A very lightweight vimrc is included (deployed with optional flag) - speak to Ed / Sam if you want to learn more about creating a more extensive config.
+This repo was adapted from dotfiles at Speechmatics. 
 
 ## Installation
 
 ### Step 1
-Clone this repo
-```bash
-git clone git@gitlab1.speechmatics.io:aml/sm-dotfiles.git ~/git/dotfiles
-```
-you probably will also want to push this repo to your personal github
+Clone this repo. You probably will also want to push this repo to your personal github
 
 ### Step 2
 Install dependencies (e.g. oh-my-zsh and related plugins), you can specify options to install specific programs: tmux, zsh, note that your dev-vm will already have tmux and zsh installed so you don't need to provide any options in this case, but you may need to provide these if you are installing locally. 
@@ -20,9 +14,9 @@ Installation on a mac machine requires homebrew so install this [from here](http
 
 ```bash
 # Install just the dependencies (if on dev-vm)
-./install.sh
+./setup.sh
 # Install dependencies + tmux & zsh (if local or on linux without tmux or zsh)
-./install.sh --tmux --zsh
+./setup.sh --tmux --zsh
 ```
 
 ### Step 3
@@ -97,16 +91,3 @@ Included in this repo are the onedark and onedarker color schemes for iterm, you
 Linked below are some other peoples dotfiles
 * [Ed's](https://github.com/erees1/dotfiles) - (Very) extensive nvim config, custom tmux theme, vim keybindings in terminal, gitconfig, install scripts for nvim (nightly) and delta (nicer looking git diff)
 * [John's](https://github.com/McHughes288/dotfiles) - Very similar to sm-dotfiles but has some useful vscode extensions if you'd like some recommendations.
-
-## Issues
-
-So when I tried this in Codespace, zsh wasn't setup correctly resulting in the errors that some plugins were missing. Here are the commands that helped resolve this (essentially some git clones).
-
-```bash
-git clone --depth 1 https://github.com/zsh-users/zsh-autosuggestions "${ZSH_CUSTOM:-~/.oh-my-zsh/custom}"/plugins/zsh-autosuggestions
-git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/themes/powerlevel10k
-git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ~/.oh-my-zsh/custom/plugins/zsh-syntax-highlighting
-git clone https://github.com/zsh-users/zsh-completions.git ~/.oh-my-zsh/custom/plugins/zsh-completions
-git clone https://github.com/zsh-users/zsh-history-substring-search.git ~/.oh-my-zsh/custom/plugins/zsh-history-substring-search
-zsh # run this to reload the terminal
-```

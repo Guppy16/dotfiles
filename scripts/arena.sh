@@ -14,7 +14,7 @@ touch ~/.no_auto_tmux
 
 sudo apt-get update
 
-./install.sh --tmux --zsh
+./setup.sh --tmux --zsh
 ./deploy.sh --vim --skip_zsh
 
 sudo apt-get install ffmpeg -y
