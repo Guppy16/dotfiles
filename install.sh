@@ -16,7 +16,7 @@ sudo apt-get update
 ./deploy.sh --vim --skip_zsh
 
 # Intialise zsh custom dir, depending on if it's passed in or not
-: ${ZSH_CUSTOM:="~/.oh-my-zsh/custom"}
+: ${ZSH_CUSTOM:=~/.oh-my-zsh/custom}
 
 git clone --depth 1 https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM}/plugins/zsh-autosuggestions
 git clone --depth 1 https://github.com/romkatv/powerlevel10k.git ${ZSH_CUSTOM}/themes/powerlevel10k
