@@ -3,9 +3,11 @@
 # -------------------------------------------------------------------
 
 alias cdg="cd ~/git"
+alias ipython="~/git/.venv/bin/ipython"
 alias zrc="cd $DOT_DIR/zsh"
 alias dot="cd $DOT_DIR"
 alias jp="jupyter lab"
+alias sshlist="grep '^Host ' ~/.ssh/config | sed 's/Host //'"
 
 # -------------------------------------------------------------------
 # general
