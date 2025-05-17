@@ -11,3 +11,7 @@ source $ZSH/oh-my-zsh.sh
 source $CONFIG_DIR/aliases.sh
 source $CONFIG_DIR/p10k.zsh
 source $CONFIG_DIR/extras.sh
+
+# https://docs.astral.sh/uv/getting-started/installation/
+eval "$(uv generate-shell-completion zsh)"
+eval "$(uvx --generate-shell-completion zsh)"

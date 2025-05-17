@@ -48,6 +48,8 @@ if [ $machine == "Linux" ]; then
     sudo apt-get install vim -y
     sudo apt-get install pipx -y && pipx ensurepath # Necessary for nvitop
     sudo apt-get install jq -y                      # json manipulation
+    curl -LsSf https://astral.sh/uv/install.sh | sh # install uv
+
 # Installing on mac with homebrew
 elif [ $machine == "Mac" ]; then
     brew install coreutils  # Mac won't have realpath before coreutils installed
