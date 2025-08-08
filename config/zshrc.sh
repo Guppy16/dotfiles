@@ -13,5 +13,6 @@ source $CONFIG_DIR/p10k.zsh
 source $CONFIG_DIR/extras.sh
 
 # https://docs.astral.sh/uv/getting-started/installation/
+source $HOME/.local/bin/env # add uv to path
 eval "$(uv generate-shell-completion zsh)"
 eval "$(uvx --generate-shell-completion zsh)"
